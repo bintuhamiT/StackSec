@@ -258,6 +258,29 @@
   font-size: 15px;
   color: #a0aec0;
   margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.projectButton {
+  background: #60a5fa;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+.container.ar .projectButton {
+  font-family: 'Changa', sans-serif;
+}
+
+.projectButton:hover {
+  background: #2563eb;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
 }
 
 .contact p {

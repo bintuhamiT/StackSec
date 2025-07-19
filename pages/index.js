@@ -97,24 +97,28 @@ export default function Home() {
       },
       portfolio: {
         title: "Case Studies",
+        viewProject: "View Project",
         projects: [
           {
-            title: "E-Commerce Platform",
-            desc: "A scalable online retail solution with integrated payment systems and optimized performance for global accessibility.",
-            details: "Built with Next.js and Stripe, achieving 99.8% uptime and a 30% increase in conversion rates.",
-            image: "/images/ecommerce.jpg",
+            title: "Shawarma Al-asala",
+            desc: "The most delicious shawarma in town.",
+            details: "Built with Vite and React.",
+            image: "/images/shawarma.png",
+            link: "https://shawarma-project-stacksec.vercel.app/",
           },
           {
-            title: "Secure Administrative Dashboard",
-            desc: "A fortified dashboard with advanced security features and real-time data analytics for enterprise operations.",
-            details: "Developed using React and AWS, reducing security risks by 40% and improving operational efficiency.",
-            image: "/images/dashboard.jpg",
+            title: "CyberBirdsBot - Ethical Hacker Assistant",
+            desc: "A comprehensive Telegram bot to support ethical hackers with cybersecurity resources and tools.",
+            details: "Embark on a global security journey with CyberBirdsBot!",
+            image: "/images/bot.jpg",
+            link: "https://t.me/CyberBrids_bot", 
           },
           {
             title: "Corporate Website Redesign",
-            desc: "A modernized corporate website with enhanced accessibility and performance, driving increased user engagement.",
+            desc: "A modernized corporate website with improved accessibility and performance to drive user engagement.",
             details: "Utilized Tailwind CSS and Framer Motion, achieving 50% faster load times and a 92/100 accessibility score.",
             image: "/images/corporate.jpg",
+            link: "/projects/corporate",
           },
         ],
       },
@@ -173,24 +177,28 @@ export default function Home() {
       },
       portfolio: {
         title: "دراسات الحالة",
+        viewProject: "عرض المشروع",
         projects: [
           {
-            title: "منصة تجارة إلكترونية",
-            desc: "حل تجزئة عبر الإنترنت قابل للتوسع مع أنظمة دفع مدمجة وأداء محسّن للوصول العالمي.",
-            details: "تم بناؤه باستخدام Next.js وStripe، محققًا توفرًا بنسبة 99.8% وزيادة 30% في معدلات التحويل.",
-            image: "/images/ecommerce.jpg",
+            title: "شاورما الأصالة",
+            desc: "أشهى شاورما في المدينة",
+            details: "تم بناؤه باستخدام Vite و React",
+            image: "/images/shawarma.png",
+            link: "https://shawarma-project-stacksec.vercel.app/",
           },
           {
-            title: "لوحة تحكم إدارية آمنة",
-            desc: "لوحة تحكم محصنة مزودة بميزات أمان متقدمة وتحليلات بيانات فورية لعمليات المؤسسات.",
-            details: "تم تطويرها باستخدام React وAWS، مما قلل من المخاطر الأمنية بنسبة 40% وحسّن الكفاءة التشغيلية.",
-            image: "/images/dashboard.jpg",
+            title: "CyberBirdsBot - مساعد المخترقين الأخلاقيين",
+            desc: "بوت تيليغرام شامل لدعم المخترقين الأخلاقيين بموارد وأدوات الأمن السيبراني.",
+            details: "انطلق في رحلة أمنية كونية مع CyberBirdsBot!",
+            image: "/images/bot.jpg",
+            link: "https://t.me/CyberBrids_bot",
           },
           {
             title: "إعادة تصميم موقع شركة",
             desc: "موقع شركة محدث بتصميم عصري، وصولية محسّنة، وأداء متميز، مما يعزز تفاعل المستخدم.",
             details: "استخدمنا Tailwind CSS وFramer Motion، محققين أوقات تحميل أسرع بنسبة 50% ودرجة وصولية 92/100.",
             image: "/images/corporate.jpg",
+            link: "/projects/corporate",
           },
         ],
       },
@@ -338,6 +346,15 @@ export default function Home() {
               <h3>{project.title}</h3>
               <p>{project.desc}</p>
               <p className={styles.projectDetails}>{project.details}</p>
+              <motion.a
+                href={project.link}
+                className={styles.projectButton}
+                variants={fadeInUp}
+                whileHover={{ scale: 1.03, boxShadow: '0 0 10px rgba(96, 165, 250, 0.4)' }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {currentContent.portfolio.viewProject}
+              </motion.a>
             </motion.div>
           ))}
         </div>
