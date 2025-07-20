@@ -30,7 +30,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 15px;
+  padding: 10px 15px;
   background: rgba(13, 18, 25, 0.95);
   backdrop-filter: blur(8px);
   position: sticky;
@@ -56,11 +56,14 @@
   display: flex;
   align-items: center;
   position: relative;
+  z-index: 30;
 }
 
 .navMenu {
   display: flex;
   align-items: center;
+  opacity: 1;
+  transition: all 0.3s ease; /* Smooth transition for visibility */
 }
 
 .navMenu a {
@@ -90,7 +93,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 30;
+  z-index: 35;
 }
 
 .hamburger span {
@@ -123,6 +126,7 @@
   font-family: 'Inter', sans-serif;
   cursor: pointer;
   transition: background 0.3s ease;
+  z-index: 30;
 }
 
 .container.ar .languageToggle {
@@ -342,63 +346,31 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
-.socialCard {
-  background: rgba(30, 42, 68, 0.9);
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid rgba(96, 165, 250, 0.2);
-  flex: 1 1 300px;
-  max-width: 360px;
+.socialButton {
+  background: #60a5fa;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 6px;
   text-decoration: none;
-  color: #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.socialCard:hover {
-  box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
-}
-
-.socialCard h3 {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #60a5fa;
-  font-family: 'Inter', sans-serif;
-}
-
-.container.ar .socialCard h3 {
-  font-family: 'Changa', sans-serif;
-}
-
-.socialCard p {
+  font-weight: 500;
   font-size: 16px;
-  color: #cbd5e0;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 200px;
   text-align: center;
 }
 
-.socialIcon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.container.ar .socialButton {
+  font-family: 'Changa', sans-serif;
 }
 
-.icon-tiktok {
-  background: #60a5fa; /* Placeholder for TikTok icon */
-  border-radius: 8px;
-}
-
-.icon-instagram {
-  background: #60a5fa; /* Placeholder for Instagram icon */
-  border-radius: 8px;
+.socialButton:hover {
+  background: #2563eb;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
 }
 
 .footer {
@@ -441,7 +413,7 @@
   }
 
   .navMenu {
-    display: none;
+    display: none; /* Hidden by default on mobile */
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -450,10 +422,16 @@
     background: rgba(13, 18, 25, 0.95);
     padding: 20px;
     border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+    z-index: 25; /* Ensure menu is above other elements */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    opacity: 0;
+    transform: translateY(-10px); /* Slight slide effect */
   }
 
   .navMenuOpen {
-    display: flex;
+    display: flex; /* Show when open */
+    opacity: 1;
+    transform: translateY(0); /* Reset position when open */
   }
 
   .navMenu a {
@@ -462,11 +440,56 @@
   }
 
   .hamburger {
-    display: flex;
+    display: flex; /* Show hamburger icon on mobile */
   }
 
   .languageToggle {
     padding: 6px 12px;
     font-size: 12px;
+  }
+
+  .socialGrid {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .socialButton {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Desktop/Laptop Styles */
+@media (min-width: 769px) {
+  .navMenu {
+    display: flex !important; /* Always visible on desktop */
+    flex-direction: row;
+    position: static;
+    background: transparent;
+    padding: 0;
+    opacity: 1;
+    transform: none; /* Reset transform for desktop */
+  }
+
+  .navMenu a {
+    margin: 0 15px;
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: none; /* Hide hamburger on desktop */
+  }
+
+  .header {
+    padding: 15px 50px;
+  }
+
+  .logo h1 {
+    font-size: 34px;
+  }
+
+  .languageToggle {
+    padding: 8px 20px;
+    font-size: 16px;
   }
 }

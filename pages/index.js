@@ -71,7 +71,7 @@ export default function Home() {
 
   const content = {
     en: {
-      nav: { home: "Home", services: "Services", portfolio: "Case Studies", social: "Follow Us" },
+      nav: { home: "Home", services: "Services", portfolio: "Case Studies", social: "Social Media" },
       hero: {
         title: "StackSec: Excellence in Digital Solutions",
         subtitle: "Delivering innovative web development and cybersecurity services with precision and reliability.",
@@ -133,19 +133,11 @@ export default function Home() {
         ],
       },
       social: {
-        title: "Follow Us",
-        subtitle: "Connect with StackSec on our social media platforms to stay updated with our latest projects and insights.",
+        title: "Our Social Media",
+        subtitle: "Follow us on our social platforms to stay updated with our latest projects and insights.",
         platforms: [
-          {
-            name: "TikTok",
-            desc: "Follow us on TikTok for engaging tech and cybersecurity content.",
-            link: "https://www.tiktok.com/@stacksec_official?is_from_webapp=1&sender_device=pc",
-          },
-          {
-            name: "Instagram",
-            desc: "Join us on Instagram to explore our projects and behind-the-scenes updates.",
-            link: "https://www.instagram.com/stacksec_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-          },
+          { name: "TikTok", link: "https://www.tiktok.com/@stacksec_official" },
+          { name: "Instagram", link: "https://www.instagram.com/stacksec_official" },
         ],
       },
       footer: {
@@ -158,7 +150,7 @@ export default function Home() {
       languageToggle: "Switch to Arabic",
     },
     ar: {
-      nav: { home: "الرئيسية", services: "الخدمات", portfolio: "دراسات الحالة", social: "تابعنا" },
+      nav: { home: "الرئيسية", services: "الخدمات", portfolio: "دراسات الحالة", social: "منصاتنا الاجتماعية" },
       hero: {
         title: "StackSec: التميز في الحلول الرقمية",
         subtitle: "تقديم خدمات تطوير الويب والأمن السيبراني المبتكرة بدقة وموثوقية.",
@@ -220,19 +212,11 @@ export default function Home() {
         ],
       },
       social: {
-        title: "تابعنا",
-        subtitle: "تواصل مع StackSec على منصاتنا الاجتماعية لمتابعة آخر مشاريعنا وأخبارنا.",
+        title: "منصاتنا الاجتماعية",
+        subtitle: "تابعنا على منصاتنا الاجتماعية للحصول على آخر التحديثات والمشاريع.",
         platforms: [
-          {
-            name: "تيك توك",
-            desc: "تابعنا على تيك توك لمحتوى تقني وأمني ممتع.",
-            link: "https://www.tiktok.com/@stacksec_official?is_from_webapp=1&sender_device=pc",
-          },
-          {
-            name: "إنستقرام",
-            desc: "انضم إلينا على إنستقرام لاستعراض مشاريعنا وتحديثات ما وراء الكواليس.",
-            link: "https://www.instagram.com/stacksec_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-          },
+          { name: "تيك توك", link: "https://www.tiktok.com/@stacksec_official" },
+          { name: "إنستغرام", link: "https://www.instagram.com/stacksec_official" },
         ],
       },
       footer: {
@@ -253,8 +237,7 @@ export default function Home() {
       <Head>
         <title>StackSec - Digital Excellence</title>
         <meta name="description" content="StackSec provides premier web development and cybersecurity services, delivering secure and scalable solutions." />
-        <link rel="icon" href="/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Changa:wght@400;700&family=Tajawal:wght@400;500&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/images/stacksec_logo_5.png" />
       </Head>
 
       {/* Particles Background */}
@@ -449,16 +432,14 @@ export default function Home() {
             <motion.a
               key={index}
               href={platform.link}
-              className={styles.socialCard}
+              className={styles.socialButton}
               variants={fadeInUp}
-              whileHover={{ scale: 1.02, boxShadow: '0 0 10px rgba(96, 165, 250, 0.3)' }}
+              whileHover={{ scale: 1.03, boxShadow: '0 0 10px rgba(96, 165, 250, 0.4)' }}
               whileTap={{ scale: 0.98 }}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className={`${styles.socialIcon} ${styles[`icon-${platform.name.toLowerCase()}`]}`}></span>
-              <h3>{platform.name}</h3>
-              <p>{platform.desc}</p>
+              {platform.name}
             </motion.a>
           ))}
         </div>
