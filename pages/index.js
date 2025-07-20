@@ -9,9 +9,14 @@ export default function Home() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, -50]);
   const [language, setLanguage] = useState('en');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'ar' : 'en');
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const particlesInit = useCallback(async (engine) => {
@@ -57,6 +62,11 @@ export default function Home() {
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
+  };
+
+  const menuVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' } },
   };
 
   const content = {
@@ -111,7 +121,7 @@ export default function Home() {
             desc: "A comprehensive Telegram bot to support ethical hackers with cybersecurity resources and tools.",
             details: "Embark on a global security journey with CyberBirdsBot!",
             image: "/images/bot.jpg",
-            link: "https://t.me/CyberBrids_bot", 
+            link: "https://t.me/CyberBrids_bot",
           },
           {
             title: "Corporate Website Redesign",
@@ -247,10 +257,59 @@ export default function Home() {
           <h1>StackSec</h1>
         </div>
         <nav className={styles.nav}>
-          <motion.a href="#home" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>{currentContent.nav.home}</motion.a>
-          <motion.a href="#services" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>{currentContent.nav.services}</motion.a>
-          <motion.a href="#portfolio" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>{currentContent.nav.portfolio}</motion.a>
-          <motion.a href="#contact" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>{currentContent.nav.contact}</motion.a>
+          <motion.button
+            className={styles.hamburger}
+            onClick={toggleMenu}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className={isMenuOpen ? styles.hamburgerOpen : ''}></span>
+            <span className={isMenuOpen ? styles.hamburgerOpen : ''}></span>
+            <span className={isMenuOpen ? styles.hamburgerOpen : ''}></span>
+          </motion.button>
+          <motion.div
+            className={`${styles.navMenu} ${isMenuOpen ? styles.navMenuOpen : ''}`}
+            variants={menuVariants}
+            initial="hidden"
+            animate={isMenuOpen ? "visible" : "hidden"}
+          >
+            <motion.a
+              href="#home"
+              variants={fadeInUp}
+              onClick={toggleMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {currentContent.nav.home}
+            </motion.a>
+            <motion.a
+              href="#services"
+              variants={fadeInUp}
+              onClick={toggleMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {currentContent.nav.services}
+            </motion.a>
+            <motion.a
+              href="#portfolio"
+              variants={fadeInUp}
+              onClick={toggleMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {currentContent.nav.portfolio}
+            </motion.a>
+            <motion.a
+              href="#contact"
+              variants={fadeInUp}
+              onClick={toggleMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {currentContent.nav.contact}
+            </motion.a>
+          </motion.div>
           <motion.button
             className={styles.languageToggle}
             onClick={toggleLanguage}
