@@ -71,7 +71,7 @@ export default function Home() {
 
   const content = {
     en: {
-      nav: { home: "Home", services: "Services", portfolio: "Case Studies", contact: "Contact Us" },
+      nav: { home: "Home", services: "Services", portfolio: "Case Studies", social: "Follow Us" },
       hero: {
         title: "StackSec: Excellence in Digital Solutions",
         subtitle: "Delivering innovative web development and cybersecurity services with precision and reliability.",
@@ -132,14 +132,21 @@ export default function Home() {
           },
         ],
       },
-      contact: {
-        title: "Contact Us",
-        subtitle: "Partner with StackSec to achieve your digital objectives. Submit your inquiry to begin.",
-        name: "Full Name",
-        email: "Email Address",
-        subject: "Subject",
-        message: "Your Message",
-        button: "Submit Inquiry",
+      social: {
+        title: "Follow Us",
+        subtitle: "Connect with StackSec on our social media platforms to stay updated with our latest projects and insights.",
+        platforms: [
+          {
+            name: "TikTok",
+            desc: "Follow us on TikTok for engaging tech and cybersecurity content.",
+            link: "https://www.tiktok.com/@stacksec_official?is_from_webapp=1&sender_device=pc",
+          },
+          {
+            name: "Instagram",
+            desc: "Join us on Instagram to explore our projects and behind-the-scenes updates.",
+            link: "https://www.instagram.com/stacksec_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+          },
+        ],
       },
       footer: {
         text: "© 2025 StackSec. All rights reserved.",
@@ -151,7 +158,7 @@ export default function Home() {
       languageToggle: "Switch to Arabic",
     },
     ar: {
-      nav: { home: "الرئيسية", services: "الخدمات", portfolio: "دراسات الحالة", contact: "تواصل معنا" },
+      nav: { home: "الرئيسية", services: "الخدمات", portfolio: "دراسات الحالة", social: "تابعنا" },
       hero: {
         title: "StackSec: التميز في الحلول الرقمية",
         subtitle: "تقديم خدمات تطوير الويب والأمن السيبراني المبتكرة بدقة وموثوقية.",
@@ -212,14 +219,21 @@ export default function Home() {
           },
         ],
       },
-      contact: {
-        title: "تواصل معنا",
-        subtitle: "شارك مع StackSec لتحقيق أهدافك الرقمية. قدم استفسارك للبدء.",
-        name: "الاسم الكامل",
-        email: "البريد الإلكتروني",
-        subject: "الموضوع",
-        message: "رسالتك",
-        button: "إرسال الاستفسار",
+      social: {
+        title: "تابعنا",
+        subtitle: "تواصل مع StackSec على منصاتنا الاجتماعية لمتابعة آخر مشاريعنا وأخبارنا.",
+        platforms: [
+          {
+            name: "تيك توك",
+            desc: "تابعنا على تيك توك لمحتوى تقني وأمني ممتع.",
+            link: "https://www.tiktok.com/@stacksec_official?is_from_webapp=1&sender_device=pc",
+          },
+          {
+            name: "إنستقرام",
+            desc: "انضم إلينا على إنستقرام لاستعراض مشاريعنا وتحديثات ما وراء الكواليس.",
+            link: "https://www.instagram.com/stacksec_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+          },
+        ],
       },
       footer: {
         text: "© 2025 StackSec. جميع الحقوق محفوظة.",
@@ -301,13 +315,13 @@ export default function Home() {
               {currentContent.nav.portfolio}
             </motion.a>
             <motion.a
-              href="#contact"
+              href="#social"
               variants={fadeInUp}
               onClick={toggleMenu}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              {currentContent.nav.contact}
+              {currentContent.nav.social}
             </motion.a>
           </motion.div>
           <motion.button
@@ -347,13 +361,13 @@ export default function Home() {
           ))}
         </div>
         <motion.a
-          href="#contact"
+          href="#social"
           className={styles.cta}
           variants={fadeInUp}
           whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(96, 165, 250, 0.5)' }}
           whileTap={{ scale: 0.98 }}
         >
-          {language === 'en' ? 'Request a Consultation' : 'طلب استشارة'}
+          {language === 'en' ? 'Follow Us' : 'تابعنا'}
         </motion.a>
       </motion.section>
 
@@ -419,55 +433,35 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Contact Section */}
+      {/* Social Media Section */}
       <motion.section
-        id="contact"
-        className={styles.contact}
+        id="social"
+        className={styles.social}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={staggerContainer}
       >
-        <motion.h2 variants={fadeInUp}>{currentContent.contact.title}</motion.h2>
-        <motion.p variants={fadeInUp}>{currentContent.contact.subtitle}</motion.p>
-        <motion.form className={styles.form} variants={staggerContainer}>
-          <motion.input
-            type="text"
-            placeholder={currentContent.contact.name}
-            className={styles.input}
-            variants={fadeInUp}
-            whileFocus={{ borderColor: '#60a5fa', scale: 1.01 }}
-          />
-          <motion.input
-            type="email"
-            placeholder={currentContent.contact.email}
-            className={styles.input}
-            variants={fadeInUp}
-            whileFocus={{ borderColor: '#60a5fa', scale: 1.01 }}
-          />
-          <motion.input
-            type="text"
-            placeholder={currentContent.contact.subject}
-            className={styles.input}
-            variants={fadeInUp}
-            whileFocus={{ borderColor: '#60a5fa', scale: 1.01 }}
-          />
-          <motion.textarea
-            placeholder={currentContent.contact.message}
-            className={styles.textarea}
-            variants={fadeInUp}
-            whileFocus={{ borderColor: '#60a5fa', scale: 1.01 }}
-          ></motion.textarea>
-          <motion.button
-            type="button"
-            className={styles.submitButton}
-            variants={fadeInUp}
-            whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(96, 165, 250, 0.5)' }}
-            whileTap={{ scale: 0.98 }}
-          >
-            {currentContent.contact.button}
-          </motion.button>
-        </motion.form>
+        <motion.h2 variants={fadeInUp}>{currentContent.social.title}</motion.h2>
+        <motion.p variants={fadeInUp}>{currentContent.social.subtitle}</motion.p>
+        <div className={styles.socialGrid}>
+          {currentContent.social.platforms.map((platform, index) => (
+            <motion.a
+              key={index}
+              href={platform.link}
+              className={styles.socialCard}
+              variants={fadeInUp}
+              whileHover={{ scale: 1.02, boxShadow: '0 0 10px rgba(96, 165, 250, 0.3)' }}
+              whileTap={{ scale: 0.98 }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={`${styles.socialIcon} ${styles[`icon-${platform.name.toLowerCase()}`]}`}></span>
+              <h3>{platform.name}</h3>
+              <p>{platform.desc}</p>
+            </motion.a>
+          ))}
+        </div>
       </motion.section>
 
       {/* Footer */}

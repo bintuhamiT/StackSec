@@ -30,7 +30,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 15px; /* Reduced padding for mobile */
+  padding: 15px 15px;
   background: rgba(13, 18, 25, 0.95);
   backdrop-filter: blur(8px);
   position: sticky;
@@ -41,7 +41,7 @@
 
 .logo h1 {
   margin: 0;
-  font-size: 28px; /* Slightly smaller for mobile */
+  font-size: 28px;
   font-weight: 700;
   font-family: 'Inter', sans-serif;
   color: #e2e8f0;
@@ -65,7 +65,7 @@
 
 .navMenu a {
   color: #e2e8f0;
-  margin: 0 15px; /* Reduced margin for mobile */
+  margin: 0 15px;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
@@ -115,10 +115,10 @@
 .languageToggle {
   background: #60a5fa;
   color: white;
-  padding: 6px 15px; /* Adjusted for mobile */
+  padding: 6px 15px;
   border: none;
   border-radius: 6px;
-  font-size: 14px; /* Smaller for mobile */
+  font-size: 14px;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
   cursor: pointer;
@@ -219,7 +219,7 @@
   background: #2563eb;
 }
 
-.services, .portfolio, .contact {
+.services, .portfolio, .social {
   padding: 80px 20px;
   text-align: center;
   background: #0d1219;
@@ -227,7 +227,7 @@
   z-index: 1;
 }
 
-.services h2, .portfolio h2, .contact h2 {
+.services h2, .portfolio h2, .social h2 {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 40px;
@@ -235,7 +235,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-.container.ar .services h2, .container.ar .portfolio h2, .container.ar .contact h2 {
+.container.ar .services h2, .container.ar .portfolio h2, .container.ar .social h2 {
   font-family: 'Changa', sans-serif;
 }
 
@@ -331,59 +331,74 @@
   box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
 }
 
-.contact p {
+.social p {
   font-size: 18px;
   margin-bottom: 25px;
   color: #cbd5e0;
 }
 
-.form {
+.socialGrid {
   display: flex;
-  flex-direction: column;
-  max-width: 600px;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.input, .textarea {
-  margin-bottom: 15px;
-  padding: 12px;
-  border: 1px solid #60a5fa;
-  border-radius: 6px;
-  font-size: 16px;
+.socialCard {
   background: rgba(30, 42, 68, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  flex: 1 1 300px;
+  max-width: 360px;
+  text-decoration: none;
   color: #e2e8f0;
-  transition: border-color 0.3s ease;
-  font-family: 'Tajawal', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.input:focus, .textarea:focus {
-  outline: none;
-  border-color: #34d399;
+.socialCard:hover {
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
 }
 
-.textarea {
-  min-height: 120px;
-}
-
-.submitButton {
-  background: #60a5fa;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 500;
+.socialCard h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #60a5fa;
   font-family: 'Inter', sans-serif;
-  cursor: pointer;
-  transition: background 0.3s ease;
 }
 
-.container.ar .submitButton {
+.container.ar .socialCard h3 {
   font-family: 'Changa', sans-serif;
 }
 
-.submitButton:hover {
-  background: #2563eb;
+.socialCard p {
+  font-size: 16px;
+  color: #cbd5e0;
+  text-align: center;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon-tiktok {
+  background: #60a5fa; /* Placeholder for TikTok icon */
+  border-radius: 8px;
+}
+
+.icon-instagram {
+  background: #60a5fa; /* Placeholder for Instagram icon */
+  border-radius: 8px;
 }
 
 .footer {
@@ -426,7 +441,7 @@
   }
 
   .navMenu {
-    display: none; /* Hide nav links by default on mobile */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -438,7 +453,7 @@
   }
 
   .navMenuOpen {
-    display: flex; /* Show nav links when menu is open */
+    display: flex;
   }
 
   .navMenu a {
@@ -447,7 +462,7 @@
   }
 
   .hamburger {
-    display: flex; /* Show hamburger icon on mobile */
+    display: flex;
   }
 
   .languageToggle {
